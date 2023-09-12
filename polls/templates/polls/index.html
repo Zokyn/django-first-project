@@ -1,0 +1,9 @@
+<a href="{% url 'index' %}">Home</a>
+<ul>
+    {% for question in latest_question_list %}
+        {% comment %} <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> {% endcomment %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% empty %}
+        <p>No polls are available.</p>
+    {% endfor %}
+</ul>
